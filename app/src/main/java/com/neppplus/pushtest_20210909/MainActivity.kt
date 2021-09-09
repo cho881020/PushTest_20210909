@@ -2,6 +2,7 @@ package com.neppplus.pushtest_20210909
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 class MainActivity : BaseActivity() {
 
@@ -19,6 +20,8 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setVales() {
+
+        Log.d(FirebaseInstanceId.getInstance().token!!)
 
     }
 }
