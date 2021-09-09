@@ -149,7 +149,7 @@ class ServerUtil {
         fun getRequestMainData(context: Context, handler: JsonResponseHandler?) {
             val url = "${HOST_URL}/v2/main_info".toHttpUrlOrNull()!!.newBuilder()
             url.addEncodedQueryParameter("device_token", FirebaseInstanceId.getInstance().token)
-            url.addEncodedQueryParameter("OS", "Android")
+            url.addEncodedQueryParameter("os", "Android")
 
             val urlString = url.toString()
 
