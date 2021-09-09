@@ -1,5 +1,6 @@
 package com.neppplus.pushtest_20210909
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -35,6 +36,7 @@ class LoginActivity : BaseActivity() {
                         Log.d("유저토큰", token)
 
                         ContextUtil.setToken(mContext, token)
+                        startActivity(Intent(mContext, MainActivity::class.java))
 
                     }else{
                         runOnUiThread {

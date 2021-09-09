@@ -2,6 +2,7 @@ package com.example.colosseum_20210903.utils
 
 import android.content.Context
 import android.util.Log
+import com.google.firebase.iid.FirebaseInstanceId
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import org.json.JSONObject
@@ -147,6 +148,9 @@ class ServerUtil {
         // 저장된 토큰값을 서버에 전송 -> pref를 열기 위한 재료로 context 필요
         fun getRequestMainData(context: Context, handler: JsonResponseHandler?) {
             val url = "${HOST_URL}/v2/main_info".toHttpUrlOrNull()!!.newBuilder()
+            url.addEncodedQueryParameter("device_token", FirebaseInstanceId.getInstance().token)
+            url.addEncodedQueryParameter("OS", "Android")
+
             val urlString = url.toString()
 
             Log.d("완성된 URL", urlString)
