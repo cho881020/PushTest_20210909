@@ -1,5 +1,6 @@
 package com.neppplus.pushtest_20210909
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -40,6 +41,10 @@ class LoginActivity : BaseActivity() {
                         Log.d("토큰값", token)
 
                         ContextUtil.setToken(mContext, token)
+
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
+
                     }
                     else {
                         runOnUiThread {
