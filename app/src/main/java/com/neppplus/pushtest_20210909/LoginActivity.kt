@@ -2,7 +2,11 @@ package com.neppplus.pushtest_20210909
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import com.neppplus.colosseum_20210903.utils.ContextUtil
+import com.neppplus.colosseum_20210903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_login.*
+import org.json.JSONObject
 
 class LoginActivity : BaseActivity() {
 
@@ -24,6 +28,27 @@ class LoginActivity : BaseActivity() {
             val inputpw = passwordEdt.text.toString()
 
 //            ServerUtill클래스 활용 -> 로그인 시도
+
+            ServerUtil.postRequestSignIn(inputId, inputpw, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+
+                    val code = jsonObj.getInt("code")
+                    if (code==200) {
+                        val dataObj = jsonObj.getJSONObject("data")
+                        val token = dataObj.getString("token")
+                        Log.d("토큰값", token)
+
+                        ContextUtil.setToken(mContext, token)
+
+                    }
+                    else {
+                        runOnUiThread{
+                            Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                }
+            })
 
 
 //            성공시 다른 화면 진입 => 회원 명부 화면
