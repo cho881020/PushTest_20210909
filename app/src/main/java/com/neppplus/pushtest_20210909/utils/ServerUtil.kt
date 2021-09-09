@@ -175,6 +175,35 @@ class ServerUtil {
 
         }
 
+        // 사용자가 누가 있는지, 유저리스트 뽑아오기
+        fun getRequestUserList(context: Context, handler: JsonResponseHandler?) {
+
+            val url = "${ HOST_URL}/user".toHttpUrlOrNull()!!.newBuilder()
+//            url.addEncodedQueryParameter("device_token",FirebaseInstanceId.getInstance().token!!)
+//            url.addEncodedQueryParameter("os","Android")
+
+            val urlString = url.toString()
+            Log.d("완성된 주소", urlString)
+
+            val request = Request.Builder().url(urlString).get().header("X-Http-Token", ContextUtil.getToken(context)).build()
+
+            val client = OkHttpClient() // client 부분은 모든 곳에서 다 동일하게 사용함.
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+            })
+
+        }
+
         // 내 사용자 정보 가져오기
         fun getRequestUserData(context: Context, handler: JsonResponseHandler?) {
 
