@@ -10,7 +10,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/nicknameTxtUserData"
+            android:id="@+id/nicknameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="사용자 닉네임" />

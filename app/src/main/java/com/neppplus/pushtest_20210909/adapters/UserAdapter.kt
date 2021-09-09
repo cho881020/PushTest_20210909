@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.neppplus.pushtest_20210909.R
 import com.neppplus.pushtest_20210909.datas.UserData
-import java.text.SimpleDateFormat
 
 class UserAdapter(
     val mContext: Context,
@@ -28,6 +27,8 @@ class UserAdapter(
         }
         row!!
         val data = mList[position]
+        
+        val nicknameTxt = row.findViewById<TextView>(R.id.nicknameTxt)
 
 
         return row
