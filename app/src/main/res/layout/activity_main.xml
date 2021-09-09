@@ -5,7 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디" />
+
+    <EditText
+        android:id="@+id/idEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이메일 양식" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="비밀번호" />
+
+    <EditText
+        android:id="@+id/pwEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호 입력" />
 
 
 </LinearLayout>
