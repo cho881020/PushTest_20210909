@@ -1,5 +1,6 @@
 package com.neppplus.pushtest_20210909
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import com.nepplus.colosseum_0903.utils.ContextUtil
@@ -33,6 +34,9 @@ class LoginActivity : BaseActivity() {
 
                         // 로그인 성공 시 토큰 값 저장
                         ContextUtil.setToken(mContext, token)
+
+                        val myIntent= Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
                     } else {
                         runOnUiThread {
                             Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show()
