@@ -214,6 +214,43 @@ class ServerUtil {
 
         }
 
+
+        fun getRequestUserList(context: Context, handler: JsonResponseHandler?) {
+
+            val url = "${HOST_URL}/user".toHttpUrlOrNull()!!.newBuilder()
+//            url.addEncodedQueryParameter("device_token", FirebaseInstanceId.getInstance().token)
+//            url.addEncodedQueryParameter("os", "Android")
+
+            val urlString = url.toString()
+
+            Log.d("완성된URL", urlString)
+
+
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+
+            })
+
+
+        }
+
 //        내 사용자 정보 가져오기
 
 
