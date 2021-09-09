@@ -673,6 +673,49 @@ class ServerUtil {
 
 
 }
+
+
+
+//        임시 : 콕 찔러보기
+        fun postRequestForkUser(context: Context, userId: Int, handler : JsonResponseHandler? ) {
+
+            val urlString = "${HOST_URL}/user_check"
+
+            val formData = FormBody.Builder()
+                .add("user_id", userId.toString())
+//                .add("password", pw)
+                .build()
+
+            val request = Request.Builder()
+                .url(urlString)
+                .post(formData)
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답본문", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+
+
+
+                }
+
+            })
+
+        }
+
     }
 
 }
