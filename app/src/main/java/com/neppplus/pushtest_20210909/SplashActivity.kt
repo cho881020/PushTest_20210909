@@ -1,7 +1,6 @@
 package com.neppplus.pushtest_20210909
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,7 +19,7 @@ class SplashActivity : BaseActivity() {
         val myHandler = Handler(Looper.getMainLooper())
         myHandler.postDelayed( {
 
-            val myIntent = Intent(mContext, MainActivity::class.java)
+            val myIntent = Intent(mContext, LoginActivity::class.java)
             startActivity(myIntent)
             finish()
 
