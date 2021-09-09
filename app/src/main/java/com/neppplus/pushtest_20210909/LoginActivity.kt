@@ -59,7 +59,7 @@ class LoginActivity : BaseActivity() {
 
     override fun setVales() {
 
-        Log.d("디바이스토큰",FirebaseInstanceId.getInstance().token!!)
+//        Log.d("디바이스토큰",FirebaseInstanceId.getInstance().token!!)
 
     }
 }
