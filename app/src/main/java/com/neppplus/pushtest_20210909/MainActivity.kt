@@ -1,10 +1,13 @@
 package com.neppplus.pushtest_20210909
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.colossuem_0903.utils.ServerUtil
+import com.neppplus.pushtest_20210909.adapters.UserAdapter
 
 class MainActivity : BaseActivity() {
+
+    lateinit var mAdapter: UserAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,6 +22,7 @@ class MainActivity : BaseActivity() {
 
     override fun setVales() {
 
+        getMainData()
     }
 
     fun getMainData() {
