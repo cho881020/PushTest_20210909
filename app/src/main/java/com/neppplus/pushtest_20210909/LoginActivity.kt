@@ -28,6 +28,7 @@ class LoginActivity : BaseActivity() {
             ServerUtil.postRequestSignIn(inputId, inputPw, object : ServerUtil.JsonResponseHandler {
                 override fun onResponse(jsonObj: JSONObject) {
                     val code = jsonObj.getInt("code")
+
                     if(code == 200) {
                         val dataObj = jsonObj.getJSONObject("data")
                         val token = dataObj.getString("token")

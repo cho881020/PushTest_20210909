@@ -1,6 +1,5 @@
 package com.neppplus.pushtest_20210909
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.nepplus.colosseum_0903.utils.ServerUtil
 
@@ -8,6 +7,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupEvents()
+        setVales()
     }
 
     override fun setupEvents() {
