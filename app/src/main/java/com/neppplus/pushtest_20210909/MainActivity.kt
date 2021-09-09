@@ -18,14 +18,7 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
-        loginBtn.setOnClickListener {
-            // id/pw
-            val inputId = emailEdt.text.toString()
-            val inputPw = passwordEdt.text.toString()
 
-            // ServerUtil클래스 활용 -> 로그인 시도
-
-        }
     }
 
     override fun setVales() {
