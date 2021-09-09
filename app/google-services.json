@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832449615881",
+    "project_id": "pushtest-20210909",
+    "storage_bucket": "pushtest-20210909.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832449615881:android:dc285fbaaad048bf5ec0d8",
+        "android_client_info": {
+          "package_name": "com.neppplus.pushtest_20210909"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832449615881-qv6n09nufcq47q5nscss3ia1f1o44dap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaUbLaOdvCM_Gs15ZRAlhnrwwAGzY6jUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832449615881-qv6n09nufcq47q5nscss3ia1f1o44dap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
