@@ -2,6 +2,8 @@ package com.neppplus.pushtest_20210909
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.google.firebase.iid.FirebaseInstanceId
 
 class MainActivity : BaseActivity() {
 
@@ -19,6 +21,9 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setVales() {
+
+        Log.d("디바이스토큰", FirebaseInstanceId.getInstance().token!!)
+
 
     }
 }

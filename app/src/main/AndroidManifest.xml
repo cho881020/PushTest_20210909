@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PushTest_20210909">
         <activity
+            android:name=".SplashActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -18,10 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".fcm.MyFCM"
+
+        <service
+            android:name=".fcm.MyFCM"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING.EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING.EVENT" />
             </intent-filter>
         </service>
     </application>
