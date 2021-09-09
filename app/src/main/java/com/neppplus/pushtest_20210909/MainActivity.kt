@@ -21,7 +21,7 @@ class MainActivity : BaseActivity() {
 
     override fun setVales() {
 
-        Log.d(FirebaseInstanceId.getInstance().token!!)
+        Log.d("디바이스토큰",FirebaseInstanceId.getInstance().token!!)
 
     }
 }
