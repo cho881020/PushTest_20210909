@@ -2,7 +2,9 @@ package com.neppplus.pushtest_20210909
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.google.firebase.iid.FirebaseInstanceId
 import com.nepplus.colosseum_0903.utils.ContextUtil
 import com.nepplus.colosseum_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_login.*
@@ -32,6 +34,8 @@ class LoginActivity : BaseActivity() {
                     if(code == 200) {
                         val dataObj = jsonObj.getJSONObject("data")
                         val token = dataObj.getString("token")
+
+                        Log.d("토큰 확인", FirebaseInstanceId.getInstance().token!!)
 
                         // 로그인 성공 시 토큰 값 저장
                         ContextUtil.setToken(mContext, token)
