@@ -14,7 +14,7 @@ class MyFCMService : FirebaseMessagingService() {
         val myHandler = Handler(Looper.getMainLooper())
 
         myHandler.post {
-            Toast.makeText(applicationContext, "푸시 알림을 받았습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, p0.notification!!.body, Toast.LENGTH_SHORT).show()
         }
 
 
