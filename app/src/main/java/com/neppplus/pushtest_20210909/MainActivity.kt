@@ -1,6 +1,7 @@
 package com.neppplus.pushtest_20210909
 
 import android.os.Bundle
+import android.widget.Toast
 import com.example.colossuem_0903.utils.ServerUtil
 import com.neppplus.pushtest_20210909.adapters.UserAdapter
 import com.neppplus.pushtest_20210909.datas.UserData
@@ -22,6 +23,39 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        userListView.setOnItemClickListener { adapterView, view, position, l ->
+
+            val clickedUser = mUserList[position]
+
+            ServerUtil.postRequestForkUser(
+                mContext,
+                clickedUser.id,
+                object : ServerUtil.JsonResponseHandler {
+                    override fun onResponse(jsonObj: JSONObject) {
+
+                        val code = jsonObj.getInt("code")
+
+                        runOnUiThread {
+                            if (code == 200) {
+
+//                        푸시알림 발송 성공
+                                Toast.makeText(mContext, "푸시알림 전송 성공", Toast.LENGTH_SHORT).show()
+                            } else {
+
+//                        디바이스 토큰 없는사람.
+                                Toast.makeText(
+                                    mContext,
+                                    "상대방이 푸시알림을 받을 수 없습니다.",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }
+                        }
+
+
+                    }
+                })
+        }
     }
 
     override fun setVales() {

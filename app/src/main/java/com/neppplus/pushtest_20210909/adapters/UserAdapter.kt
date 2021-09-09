@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.neppplus.pushtest_20210909.R
 import com.neppplus.pushtest_20210909.datas.UserData
 
@@ -24,6 +25,10 @@ class UserAdapter(
         row!!
 
         val data = mList[position]
+
+        val nicknameTxt = row.findViewById<TextView>(R.id.nickname_Txt)
+
+        nicknameTxt.text = data.nickname
 
         return row
     }
