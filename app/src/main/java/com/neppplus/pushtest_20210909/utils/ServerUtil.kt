@@ -2,6 +2,7 @@ package com.example.colossuem_0903.utils
 
 import android.content.Context
 import android.util.Log
+import com.google.firebase.iid.FirebaseInstanceId
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import org.json.JSONObject
@@ -165,6 +166,8 @@ class ServerUtil {
         fun getRequestMainData(context: Context, handler: JsonResponseHandler?) {
 
             val url = "${HOST_URL}/v2/main_info".toHttpUrlOrNull()!!.newBuilder()
+            url.addEncodedQueryParameter("device_token", FirebaseInstanceId.getInstance().token)
+            url.addEncodedQueryParameter("os", "Android")
 
             val urlString = url.toString()
             Log.d("완성된 URL", urlString)

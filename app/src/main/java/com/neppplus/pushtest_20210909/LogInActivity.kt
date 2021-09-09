@@ -1,8 +1,10 @@
 package com.neppplus.pushtest_20210909
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.colossuem_0903.utils.ContextUtil
 import com.example.colossuem_0903.utils.ServerUtil
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_login.*
@@ -40,6 +42,12 @@ class LogInActivity : BaseActivity() {
                             val token = dataObj.getString("token")
 
                             Log.d("토큰값", token.toString())
+
+                            ContextUtil.setToken(mContext, token)
+
+                            val myIntent = Intent(mContext, MainActivity::class.java)
+                            startActivity(myIntent)
+                            finish()
                         } else {
                             runOnUiThread {
                                 Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show()

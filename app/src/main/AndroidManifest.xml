@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PushTest_20210909"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -23,9 +26,7 @@
         </activity>
         <activity
             android:name=".LogInActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
 
         <service
             android:name=".fcm.MyFCMService"
