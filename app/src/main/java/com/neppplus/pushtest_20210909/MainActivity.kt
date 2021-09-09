@@ -5,7 +5,7 @@ import android.os.Bundle
 
 class MainActivity : BaseActivity() {
 
-//    여기는 master 브랜치입니다.
+//    여기는 안수지가 작업하는 브랜치입니다.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
