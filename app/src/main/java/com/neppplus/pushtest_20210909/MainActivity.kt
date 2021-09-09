@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.google.firebase.iid.FirebaseInstanceId
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
@@ -17,6 +18,19 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        loginBtn.setOnClickListener {
+//            id / pw
+
+            val inputId = emailEdt.text.toString()
+            val inputPw = passwordEdt.text.toString()
+
+//            ServerUtil클래스 활용 -> 로그인 시도.
+
+
+//            성공시 다른 화면 진입. => 회원 명부 화면.
+
+        }
 
     }
 
