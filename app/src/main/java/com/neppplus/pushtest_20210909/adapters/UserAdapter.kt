@@ -29,6 +29,7 @@ class UserAdapter(
         val data = mList[position]
         
         val nicknameTxt = row.findViewById<TextView>(R.id.nicknameTxt)
+        nicknameTxt.text = data.nickname
 
 
         return row

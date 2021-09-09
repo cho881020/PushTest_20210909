@@ -35,10 +35,10 @@ class LoginActivity : BaseActivity() {
                         val dataObj = jsonObj.getJSONObject("data")
                         val token = dataObj.getString("token")
 
-                        Log.d("토큰 확인", FirebaseInstanceId.getInstance().token!!)
-
                         // 로그인 성공 시 토큰 값 저장
                         ContextUtil.setToken(mContext, token)
+
+                        Log.d("토큰 확인", FirebaseInstanceId.getInstance().token!!)
 
                         val myIntent= Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
