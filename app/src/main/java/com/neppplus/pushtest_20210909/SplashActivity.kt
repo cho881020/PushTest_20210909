@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.example.colossuem_0903.utils.ContextUtil
 
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +23,18 @@ class SplashActivity : BaseActivity() {
 
         val myHandler = Handler(Looper.getMainLooper())
         myHandler.postDelayed({
-            val myIntent = Intent(mContext, LogInActivity::class.java)
+            val myIntent: Intent
+
+            if (ContextUtil.getAutoLogIn(mContext) && ContextUtil.getToken(mContext) != "") {
+
+                myIntent = Intent(mContext, MainActivity::class.java)
+            } else {
+
+                myIntent = Intent(mContext, LogInActivity::class.java)
+            }
+
             startActivity(myIntent)
             finish()
-        }, 1000)
+        }, 2000)
     }
 }

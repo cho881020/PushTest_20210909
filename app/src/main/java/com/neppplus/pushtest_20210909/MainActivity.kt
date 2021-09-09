@@ -70,7 +70,19 @@ class MainActivity : BaseActivity() {
 
 //       메인화면에서 쓰일 데이터 불러오기 X,
 //        기존의 v2/main_info 에 쿼리파라미터 2개 추가.
-        ServerUtil.getRequestMainData(mContext, null)
+        ServerUtil.getRequestMainData(mContext, object : ServerUtil.JsonResponseHandler {
+            override fun onResponse(jsonObj: JSONObject) {
+
+                val dataObj = jsonObj.getJSONObject("data")
+                val userObj = dataObj.getJSONObject("user")
+                val loginUser = UserData.getUserDataFromJson(userObj)
+
+                runOnUiThread {
+                    Toast.makeText(mContext, "${loginUser.nickname}님 환영합니다.", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+        })
 
 //        사용자 목록 받아서 파싱
         ServerUtil.getRequestUserList(mContext, object : ServerUtil.JsonResponseHandler {

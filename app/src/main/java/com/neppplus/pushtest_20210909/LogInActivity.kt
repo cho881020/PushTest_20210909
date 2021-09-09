@@ -24,6 +24,11 @@ class LogInActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        autoLoginCheckbox.setOnCheckedChangeListener { _, isChecked ->
+
+            ContextUtil.setAutoLogIn(mContext, isChecked)
+        }
+
         login_Btn.setOnClickListener {
 
             val inputId = email_Txt.text.toString()
