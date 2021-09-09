@@ -5,7 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/inputId"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="아아디"/>
+
+    <EditText
+        android:id="@+id/emailEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이메일 입력"/>
+
+
+
+    <TextView
+        android:id="@+id/inputPw"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="비밀번호"/>
+
+    <EditText
+        android:id="@+id/passwordEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호입력"/>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인 버튼"/>
+
+
 
 
 </LinearLayout>

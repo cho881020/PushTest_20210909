@@ -2,23 +2,28 @@ package com.neppplus.pushtest_20210909
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.neppplus.colosseum_20210903.utils.ServerUtil
 
 class MainActivity : BaseActivity() {
-
-//    여기는 김현지가 작업하는 브랜치 입니다
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setupEvents()
-        setVales()
+        setContentView(R.layout.activity_main2)
     }
 
     override fun setupEvents() {
-
+        TODO("Not yet implemented")
     }
 
     override fun setVales() {
+        getMainData()
+
+    }
+
+    fun getMainData() {
+
+
+        ServerUtil.getRequestMainData(mContext, null)
+
 
     }
 }
